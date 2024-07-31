@@ -12,11 +12,13 @@ in
 
   clock24h = false;
   aLocale = "en_US.UTF-8";
-  XkbLayout = "us";
-  XkbVariant = "intl";
+  kbLayout = "us";
+  kbVariant = "intl";
   aTimezone = "Europe/Paris";
 
-  gpuType = "intel";
+  gpuType = "intel-nvidia";
+  intel-bus-id = "PCI:0:2:0";
+  nvidia-bus-id = "PCI:1:0:0";
 
   colorScheme = "dracula";
 }

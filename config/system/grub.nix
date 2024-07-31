@@ -1,8 +1,6 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 
 {
-  boot.loader.timeout = null;
-  boot.kernelParams = [ "quiet" ];
   boot.loader.grub = {
     enable = true;
     device = "nodev";
@@ -10,7 +8,7 @@
     useOSProber = true;
     splashImage = null;
 
-    theme = pkgs.stdenv.mkDerivation rec {
+    theme = pkgs.stdenv.mkDerivation {
       pname = "catppuccin-grub";
       version = "1";
       src = pkgs.fetchFromGitHub {
@@ -28,6 +26,4 @@
       };
     };
   };
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.efi.efiSysMountPoint = "/boot";
 }

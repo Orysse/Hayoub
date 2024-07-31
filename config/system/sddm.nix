@@ -1,13 +1,13 @@
 { pkgs, host, ... }:
 
-let inherit (import ../../hosts/${host}/options.nix) XkbVariant XkbLayout ;
+let inherit (import ../../hosts/${host}/options.nix) kbVariant kbLayout ;
 in
 {
   services.xserver = {
-    enable = true;
+    enable = false;
     xkb = {
-      variant = "${XkbVariant}";
-      layout = "${XkbLayout}";
+      variant = "${kbVariant}";
+      layout = "${kbLayout}";
     };
   };
 

@@ -14,14 +14,12 @@
     };
   };
 
-  outputs = inputs@{ home-manager, nixpkgs, impermanence, ... }: 
+  outputs = inputs@{ home-manager, nixpkgs, impermanence, self, ... }: 
   let
     
     host = "Restau-kebab-DGSI";
     system = "x86_64-linux";
     inherit (import ./hosts/${host}/options.nix) username hostname;
-    #username = "abelc";
-    #hostname = "Restau-kebab-DGSI";
 
     pkgs = import nixpkgs {
       inherit system;
@@ -36,7 +34,7 @@
 	    specialArgs = { 
           inherit system; inherit inputs; 
           inherit username; inherit hostname;
-          inherit host;
+          inherit host; inherit pkgs;
         };
 	    modules = [ 
         ./system.nix

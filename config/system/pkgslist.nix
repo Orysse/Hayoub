@@ -1,4 +1,4 @@
-{ pkgs, config, inputs, ... }:
+{ pkgs, ... }:
 
 {
   # Allow unfree packages
@@ -6,34 +6,53 @@
 
   # List System Programs
   environment.systemPackages = with pkgs; [
+    #Get things online
     wget
     curl
     git
-    cmatrix
-    neofetch
-    btop
-    unrar
-    libnotify
-    wl-clipboard
-    lsd
+
+    #Build tools
+    cmake
     pkg-config
     meson
-    gnumake
-    noto-fonts-color-emoji
-    ripgrep
     appimage-run
+    gnumake
+
+    #Useful bin
+    wl-clipboard
+    libnotify
     playerctl
-    vim
+    unrar
+
+    #Nix package bullshit
+    nix-prefetch-git
+    fd
+
+    #Terminal utils
+    btop
+    lsd
+    neofetch
     tree
+    ripgrep
+    vim
+
+    #User apps
+    firefox
+    pavucontrol
     slack
     vault
-    cmake
-    pavucontrol
     webcord
     wayshot
 
-    firefox
-    kitty
+    #Kube
+    k3d
+    kind
+    kubectl
+    kubernetes-helm
+    terraform
+
+    # ?
+    noto-fonts-color-emoji
   ];
 
   programs = {
